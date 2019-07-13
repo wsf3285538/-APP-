@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -16,49 +16,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/hotel.png',
-        desc: '酒店'
-      }, {
-        id: '0002',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/flight.png',
-        desc: '机票'
-      }, {
-        id: '0003',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/package.png',
-        desc: '度假'
-      }, {
-        id: '0004',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/train.png',
-        desc: '火车票'
-      }, {
-        id: '0005',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '热门景点'
-      }, {
-        id: '0006',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/travel.png',
-        desc: '攻略'
-      }, {
-        id: '0007',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/kezhan.png',
-        desc: '名宿'
-      }, {
-        id: '0008',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/oversea.png',
-        desc: '换外币'
-      }, {
-        id: '0009',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/tuan.png',
-        desc: '旅游团购'
-      }, {
-        id: '0010',
-        imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/car.png',
-        desc: '专车自驾'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {

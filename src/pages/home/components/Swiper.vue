@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for='item of swiperList' :key="item.id">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for='item of list' :key="item.id">
         <img class="swiper-img" :src="item.imgUrl"
         />
       </swiper-slide>
@@ -13,6 +13,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
@@ -26,17 +29,12 @@ export default {
         clickable: true,
         paginationType: 'bullets',
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/4e474ded659cd8e791404278930f48d0.jpg_890x330_54c60781.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/ca4749bb92e93e2e5bf960c704b095d1.jpg_890x330_d9b4e8f3.jpg'
-      }, {
-        id: '0003',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/1a77cfc99bdf951b099c2c963729546b.jpg_890x330_3b8b02bb.jpg'
-      }]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }
@@ -53,6 +51,4 @@ export default {
     background :#eee
     .swiper-img
       width :100%
-    .swiperback
-      margin-bottom :.2rem
 </style>
