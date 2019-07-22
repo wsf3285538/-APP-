@@ -6,7 +6,7 @@
         />
       </swiper-slide>
       <div class="swiper-pagination swiperback"  slot="pagination"></div>
-  </swiper>
+    </swiper>
   </div>
 </template>
 
